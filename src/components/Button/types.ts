@@ -13,7 +13,7 @@ export enum ButtonType {
   Link = 'link'
 }
 
-export interface ButtonProps {
+export interface BaseButtonProps {
   className?: string
   disabled?: boolean
   size?: ButtonSize
@@ -21,3 +21,6 @@ export interface ButtonProps {
   children: React.ReactNode
   href?: string
 }
+type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
+type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>

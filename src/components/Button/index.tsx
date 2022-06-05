@@ -5,7 +5,8 @@ import { ButtonSize, ButtonType } from './types'
 import type { ButtonProps } from './types'
 
 const Button: FC<ButtonProps> = (props) => {
-  const { btnType, disabled, size, children, href } = props
+  const { btnType, disabled, size, children, href, ...otherProps } = props
+  console.log(otherProps)
 
   const className = classNames('btn', {
     [`btn-${btnType}`]: btnType,
@@ -14,10 +15,10 @@ const Button: FC<ButtonProps> = (props) => {
   })
 
   if (btnType === ButtonType.Link && href) {
-    return <a className={className} href={href} target='_blank' rel="noreferrer">{children}</a>
+    return <a className={className} href={href} {...otherProps}>{children}</a>
   }
 
-  return <button className={className} disabled={disabled}>{children}</button>
+  return <button className={className} disabled={disabled} {...otherProps}>{children}</button>
 }
 Button.defaultProps = {
   btnType: ButtonType.Default,
