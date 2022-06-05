@@ -25,7 +25,7 @@ const Button: FC<ButtonProps> = (props) => {
 }
 Button.defaultProps = {
   btnType: 'default',
-  size: 'default',
+  size: 'df',
 }
 
 export default Button

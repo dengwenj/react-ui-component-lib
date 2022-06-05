@@ -1,6 +1,6 @@
 import React from "react"
 
-type ButtonSize = 'large' | 'small' | 'default'
+type ButtonSize = 'lg' | 'sm' | 'df'
 
 type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 

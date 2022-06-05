@@ -8,8 +8,8 @@ export default function App() {
   return (
     <>
       {/* Button 组件 */}
-      <Button btnType='default' href='http://dengwj.vip/' target='_blank'>dengwj</Button>
-      <Button disabled size='large'>dengwj</Button>
+      <Button btnType='link' href='http://dengwj.vip/' target='_blank'>dengwj</Button>
+      <Button disabled size='lg'>dengwj</Button>
       <Button onClick={(e) => alert('ddd')} btnType='primary'>dengwj</Button>
 
       {/* 导航菜单组件 */}
