@@ -1,17 +1,8 @@
 import React from "react"
 
-export enum ButtonSize {
-  Large = 'lg',
-  Small = 'sm',
-  Default = 'df'
-}
+type ButtonSize = 'large' | 'small' | 'default'
 
-export enum ButtonType {
-  Primary = 'primary',
-  Default = 'default',
-  Danger = 'danger',
-  Link = 'link'
-}
+type ButtonType = 'primary' | 'default' | 'danger' | 'link'
 
 export interface BaseButtonProps {
   className?: string
@@ -23,4 +14,5 @@ export interface BaseButtonProps {
 }
 type NativeButtonProps = BaseButtonProps & React.ButtonHTMLAttributes<HTMLElement>
 type AnchorButtonProps = BaseButtonProps & React.AnchorHTMLAttributes<HTMLElement>
+// Partial<T> 可以把属性都设置成可选的
 export type ButtonProps = Partial<NativeButtonProps & AnchorButtonProps>

@@ -1,28 +1,31 @@
 import React, { FC } from 'react'
 import classNames from 'classnames'
 
-import { ButtonSize, ButtonType } from './types'
 import type { ButtonProps } from './types'
 
+/**
+ * @author dengwenjie
+ * Button 按钮组件
+ */
 const Button: FC<ButtonProps> = (props) => {
-  const { btnType, disabled, size, children, href, ...otherProps } = props
+  const { btnType, className, disabled, size, children, href, ...otherProps } = props
   console.log(otherProps)
 
-  const className = classNames('btn', {
+  const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
     [`btn-${size}`]: size,
     disabled
   })
 
-  if (btnType === ButtonType.Link && href) {
-    return <a className={className} href={href} {...otherProps}>{children}</a>
+  if (btnType === 'link' && href) {
+    return <a className={classes} href={href} {...otherProps}>{children}</a>
   }
 
-  return <button className={className} disabled={disabled} {...otherProps}>{children}</button>
+  return <button className={classes} disabled={disabled} {...otherProps}>{children}</button>
 }
 Button.defaultProps = {
-  btnType: ButtonType.Default,
-  size: ButtonSize.Default,
+  btnType: 'default',
+  size: 'default',
 }
 
 export default Button
