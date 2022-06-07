@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface ISubMenuProps {
-  index?: number
+  index?: string
   title: string
   className?: string
   children: React.ReactNode

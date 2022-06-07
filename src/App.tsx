@@ -15,7 +15,7 @@ export default function App() {
       <hr />
 
       {/* 导航菜单组件 */}
-      <Menu mode='vertical' defaultIndex={2} onSelect={(idx) => console.log(idx)}>
+      <Menu mode='vertical' defaultIndex='2' onSelect={(idx) => console.log(idx)} defaultOpenSubMenus={['1', '2']}>
         <MenuItem disabled>
           干干干1
         </MenuItem>
@@ -25,6 +25,14 @@ export default function App() {
           </MenuItem>
           <MenuItem>
             哈哈哈2
+          </MenuItem>
+        </SubMenu>
+        <SubMenu title='submenu1111'>
+          <MenuItem>
+            哈哈哈3
+          </MenuItem>
+          <MenuItem>
+            哈哈哈4
           </MenuItem>
         </SubMenu>
         <MenuItem>

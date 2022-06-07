@@ -1,7 +1,7 @@
 import React from "react";
 
 export interface MenuItemProps {
-  index?: number
+  index?: string
   disabled?: boolean
   className?: string
   style?: React.CSSProperties

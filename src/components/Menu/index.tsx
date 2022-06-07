@@ -4,21 +4,21 @@ import classNames from "classnames"
 import type { MenuProps, IMenuContext } from './types'
 import type { MenuItemProps } from './components/MenuItem/types'
 
-export const Context = createContext<IMenuContext>({ index: 0 })
+export const Context = createContext<IMenuContext>({ index: '0' })
 
 /**
  * @author dengwenjie
  * Menu 导航菜单组件
  */
 const Menu: FC<MenuProps> = (props) => {
-  const { defaultIndex, mode, className, style, children, onSelect } = props
+  const { defaultIndex, mode, className, style, children, defaultOpenSubMenus, onSelect } = props
   const [activeIndex, setActiveIndex] = useState(defaultIndex!)
 
   const classes = classNames('menu', className, {
     'menu-vertical': mode === 'vertical'
   })
 
-  const handleClick = (index: number) => {
+  const handleClick = (index: string) => {
     setActiveIndex(index)
     onSelect?.(index)
   }
@@ -26,7 +26,8 @@ const Menu: FC<MenuProps> = (props) => {
   const value = {
     index: activeIndex,
     onSelect: handleClick,
-    mode
+    mode,
+    defaultOpenSubMenus
   }
 
   const renderChildren = () => (
@@ -38,7 +39,7 @@ const Menu: FC<MenuProps> = (props) => {
         const { displayName } = childElement.type
         if (displayName === 'MenuItem' || 'SubMenu') {
           // 自动添加了 index 属性 不用在 MenuItem 组件哪里写 index 了
-          return React.cloneElement(childElement, { index })
+          return React.cloneElement(childElement, { index: String(index) })
         }
         console.error('子节点必须是 MenuItem 组件')
       }
@@ -54,7 +55,7 @@ const Menu: FC<MenuProps> = (props) => {
   )
 }
 Menu.defaultProps = {
-  defaultIndex: 0,
+  defaultIndex: '0',
   mode: 'horizontal'
 }
 

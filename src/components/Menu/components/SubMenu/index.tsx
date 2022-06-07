@@ -6,8 +6,8 @@ import { Context } from "../.."
 import { MenuItemProps } from "../MenuItem/types"
 
 const SubMenu: FC<ISubMenuProps> = ({ title, className, index, children }) => {
-  const [menuOpen, setMenuOpen] = useState(false) 
   const context = useContext(Context)
+  const [menuOpen, setMenuOpen] = useState(context.defaultOpenSubMenus?.includes(index!))
 
   const classes = classNames('menu-item submenu-item', className, {
     'is-active': context.index === index
@@ -18,11 +18,10 @@ const SubMenu: FC<ISubMenuProps> = ({ title, className, index, children }) => {
       'menu-opened': menuOpen
     })
 
-    const childrenComponent = Children.map(children, (child, index) => {
+    const childrenComponent = Children.map(children, (child, idx) => {
       const childrenElement = child as React.FunctionComponentElement<MenuItemProps>
       if (childrenElement.type.displayName === 'MenuItem') {
-        return childrenElement
-        // return React.cloneElement(childrenElement, { index })
+        return React.cloneElement(childrenElement, { index: `${index}-${idx}` })
       }
       console.error('SubMenu 的子元素必须是 MenuItem 组件')
     })
@@ -39,7 +38,6 @@ const SubMenu: FC<ISubMenuProps> = ({ title, className, index, children }) => {
     // context.onSelect?.(index!)
     setMenuOpen(!menuOpen)
   }
-
 
   const click = context.mode === 'vertical' ? { onClick: handleClick } : {}
   const hover = context.mode === 'horizontal' ? {
