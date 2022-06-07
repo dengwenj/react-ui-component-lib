@@ -35,7 +35,7 @@ const Menu: FC<MenuProps> = (props) => {
         // console.log(child)
         const childElement = child as React.FunctionComponentElement<MenuItemProps>
         const { displayName } = childElement.type
-        if (displayName === 'MenuItem') {
+        if (displayName === 'MenuItem' || 'SubMenu') {
           // 自动添加了 index 属性 不用在 MenuItem 组件哪里写 index 了
           return React.cloneElement(childElement, { index })
         }
