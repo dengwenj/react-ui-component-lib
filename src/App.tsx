@@ -15,13 +15,14 @@ export default function App() {
 
       {/* 导航菜单组件 */}
       <Menu mode='vertical' defaultIndex={2} onSelect={(idx) => console.log(idx)}>
-        <MenuItem disabled index={0}>
+        <div>1</div>
+        <MenuItem disabled>
           干干干1
         </MenuItem>
-        <MenuItem index={1}>
+        <MenuItem>
           干干干2
         </MenuItem>
-        <MenuItem index={2}>
+        <MenuItem>
           干干干3
         </MenuItem>
       </Menu>

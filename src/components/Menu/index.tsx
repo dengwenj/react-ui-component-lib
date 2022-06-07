@@ -1,7 +1,8 @@
-import React, { FC, createContext, useState } from "react"
+import React, { FC, createContext, useState, Children } from "react"
 import classNames from "classnames"
 
 import type { MenuProps, IMenuContext } from './types'
+import type { MenuItemProps } from './components/MenuItem/types'
 
 export const Context = createContext<IMenuContext>({ index: 0 })
 
@@ -27,10 +28,26 @@ const Menu: FC<MenuProps> = (props) => {
     onSelect: handleClick
   }
 
+  const renderChildren = () => (
+    Children.map(
+      children, 
+      (child, index) => {
+        // console.log(child)
+        const childElement = child as React.FunctionComponentElement<MenuItemProps>
+        const { displayName } = childElement.type
+        if (displayName === 'MenuItem') {
+          // 自动添加了 index 属性 不用在 MenuItem 组件哪里写 index 了
+          return React.cloneElement(childElement, { index })
+        }
+        console.error('子节点必须是 MenuItem 组件')
+      }
+    )
+  )
+
   return (
     <ul className={classes} style={style}>
       <Context.Provider value={value}>
-        {children}
+        {renderChildren()}
       </Context.Provider>
     </ul>
   )

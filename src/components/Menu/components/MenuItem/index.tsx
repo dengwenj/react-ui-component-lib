@@ -19,9 +19,9 @@ const MenuItem: FC<MenuItemProps> = (props) => {
   })
 
   const handleClick = () => {
-    if (!disabled) context.onSelect?.(index)
+    if (!disabled) context.onSelect?.(index!)
   }
-
+ 
   return (
     <>
       <li className={classes} style={style} onClick={handleClick}>
@@ -30,5 +30,6 @@ const MenuItem: FC<MenuItemProps> = (props) => {
     </>
   )
 }
+MenuItem.displayName = 'MenuItem'
 
 export default MenuItem
