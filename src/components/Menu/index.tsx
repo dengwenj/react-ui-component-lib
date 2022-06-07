@@ -1,7 +1,9 @@
-import React, { FC } from "react"
+import React, { FC, createContext, useState } from "react"
 import classNames from "classnames"
 
-import type { MenuProps } from './types'
+import type { MenuProps, IMenuContext } from './types'
+
+export const Context = createContext<IMenuContext>({ index: 0 })
 
 /**
  * @author dengwenjie
@@ -9,14 +11,27 @@ import type { MenuProps } from './types'
  */
 const Menu: FC<MenuProps> = (props) => {
   const { defaultIndex, mode, className, style, children, onSelect } = props
+  const [activeIndex, setActiveIndex] = useState(defaultIndex!)
 
   const classes = classNames('menu', className, {
     'menu-vertical': mode === 'vertical'
   })
 
+  const handleClick = (index: number) => {
+    setActiveIndex(index)
+    onSelect?.(index)
+  }
+
+  const value = {
+    index: activeIndex,
+    onSelect: handleClick
+  }
+
   return (
     <ul className={classes} style={style}>
-      {children}
+      <Context.Provider value={value}>
+        {children}
+      </Context.Provider>
     </ul>
   )
 }
