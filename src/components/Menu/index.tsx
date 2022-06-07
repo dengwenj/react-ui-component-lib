@@ -25,7 +25,8 @@ const Menu: FC<MenuProps> = (props) => {
 
   const value = {
     index: activeIndex,
-    onSelect: handleClick
+    onSelect: handleClick,
+    mode
   }
 
   const renderChildren = () => (

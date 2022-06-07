@@ -1,9 +1,10 @@
 import React from "react"
 
 type OnSelect = (selectedIdx: number) => void
+type Mode = 'vertical' | 'horizontal'
 export interface MenuProps {
   defaultIndex?: number
-  mode?: 'vertical' | 'horizontal'
+  mode?: Mode
   className?: string
   style?: React.CSSProperties
   onSelect?: OnSelect
@@ -13,4 +14,5 @@ export interface MenuProps {
 export interface IMenuContext {
   index: number
   onSelect?: OnSelect
+  mode?: Mode
 }
