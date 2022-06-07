@@ -9,7 +9,6 @@ import type { ButtonProps } from './types'
  */
 const Button: FC<ButtonProps> = (props) => {
   const { btnType, className, disabled, size, children, href, ...otherProps } = props
-  console.log(otherProps)
 
   const classes = classNames('btn', className, {
     [`btn-${btnType}`]: btnType,
