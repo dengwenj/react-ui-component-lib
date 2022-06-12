@@ -1,6 +1,7 @@
 import React from 'react'
 
 import Button from './components/Button'
+import Input from './components/Input'
 import Menu from './components/Menu'
 import MenuItem from './components/Menu/components/MenuItem'
 import SubMenu from './components/Menu/components/SubMenu'
@@ -42,6 +43,9 @@ export default function App() {
           干干干3
         </MenuItem>
       </Menu>
+
+      {/* 输入组件 */}
+      <Input prepend={'111'} />
     </>
   )
 }
