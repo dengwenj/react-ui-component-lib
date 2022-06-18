@@ -1,4 +1,5 @@
 import React from 'react'
+import { HashRouter as Router } from 'react-router-dom'
 
 import Button from './components/Button'
 import Input from './components/Input'
@@ -6,6 +7,8 @@ import Layout from './components/Layout'
 import Menu from './components/Menu'
 import MenuItem from './components/Menu/components/MenuItem'
 import SubMenu from './components/Menu/components/SubMenu'
+import DWj from './pages/Dwj'
+import RouterConfig from './routes'
 
 export default function App() {
   return (
@@ -47,8 +50,12 @@ export default function App() {
 
       {/* 输入组件 */}
       {/* <Input prepend={'111'} /> */}
+      <Router>
+        {/* <Layout /> */}
 
-      <Layout />
+        <RouterConfig />
+      </Router>
+      
     </>
   )
 }

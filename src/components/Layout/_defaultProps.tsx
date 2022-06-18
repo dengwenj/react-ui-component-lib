@@ -1,96 +1,84 @@
-// import { AntDesignOutlined, CrownOutlined, SmileOutlined, TabletOutlined } from '@ant-design/icons';
+import { AntDesignOutlined } from '@ant-design/icons'
 
 const defaultProps = {
   route: {
     path: '/',
     routes: [
       {
-        path: '/welcome',
+        path: '/dwj1',
         name: '欢迎',
-        // icon: <SmileOutlined />,
-        component: './Welcome',
+        icon: <AntDesignOutlined />
       },
       {
-        path: '/admin',
+        path: '/dwj2',
         name: '管理页',
-        // icon: <CrownOutlined />,
-        access: 'canAdmin',
-        component: './Admin',
+        icon: <AntDesignOutlined />,
         routes: [
           {
-            path: '/admin/sub-page1',
+            path: '/dwj3',
             name: '一级页面',
-            // icon: <CrownOutlined />,
-            component: './Welcome',
+            icon: <AntDesignOutlined />,
           },
           {
-            path: '/admin/sub-page2',
+            path: '/dwj4',
             name: '二级页面',
-            // icon: <CrownOutlined />,
-            component: './Welcome',
+            icon: <AntDesignOutlined />,
           },
           {
-            path: '/admin/sub-page3',
+            path: '/dwj5',
             name: '三级页面',
-            // icon: <CrownOutlined />,
-            component: './Welcome',
+            icon: <AntDesignOutlined />,
           },
         ],
       },
       {
         name: '列表页',
-        // icon: <TabletOutlined />,
-        path: '/list',
-        component: './ListTableList',
+        path: '/dwj6',
+        icon: <AntDesignOutlined />,
         routes: [
           {
-            path: '/list/sub-page',
+            path: '/dwj7',
             name: '一级列表页面',
-            // icon: <CrownOutlined />,
+            icon: <AntDesignOutlined />,
             routes: [
               {
-                path: 'sub-sub-page1',
+                path: '/dwj8',
                 name: '一一级列表页面',
-                // icon: <CrownOutlined />,
-                component: './Welcome',
+                icon: <AntDesignOutlined />,
               },
               {
-                path: 'sub-sub-page2',
+                path: '/dwj9',
                 name: '一二级列表页面',
-                // icon: <CrownOutlined />,
-                component: './Welcome',
+                icon: <AntDesignOutlined />,
               },
               {
-                path: 'sub-sub-page3',
+                path: '/dwj10',
                 name: '一三级列表页面',
-                // icon: <CrownOutlined />,
-                component: './Welcome',
+                icon: <AntDesignOutlined />,
               },
             ],
           },
           {
-            path: '/list/sub-page2',
+            path: '/dwj11',
             name: '二级列表页面',
-            // icon: <CrownOutlined />,
-            component: './Welcome',
+            icon: <AntDesignOutlined />,
           },
           {
-            path: '/list/sub-page3',
+            path: '/dwj12',
             name: '三级列表页面',
-            // icon: <CrownOutlined />,
-            component: './Welcome',
+            icon: <AntDesignOutlined />,
           },
         ],
       },
       {
-        path: 'https://ant.design',
+        path: '/dwj',
         name: 'Ant Design 官网外链',
-        // icon: <AntDesignOutlined />,
+        icon: <AntDesignOutlined />,
       },
     ],
   },
-  location: {
-    pathname: '/',
-  },
+  // location: {
+  //   pathname: '/',
+  // },
 }
 export default defaultProps
